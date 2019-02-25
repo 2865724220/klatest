@@ -1,0 +1,111 @@
+<template>
+  <div id="app">
+    <div class="wrap">
+      <div class="circle">
+        <div :class=" subShow ?'firstS firstSOpen':'firstS '">
+          <div class="title" style="left:calc(50% - 30px);top:calc(15% - 30px)">长航油运</div>
+          <div class="title" style="left:calc(74.7487% - 30px);top:calc(25.13% - 30px)">长航油运02</div>
+          <div class="title" style="left:calc(85% - 30px);top:calc(50% - 30px)">长航油运02</div>
+          <div class="title" style="left:calc(74.787% - 30px);top:calc(74.784% - 30px)">长航油运02</div>
+          <div class="title" style="left:calc(50% - 30px);top:calc(85% - 30px)">长航油运02</div>
+          <div class="title" style="left:calc(25.13% - 30px);top:calc(74.787% - 30px)">长航油运02</div>
+          <div class="title" style="left:calc(15% - 30px);top:calc(50% - 30px)">长航油运02</div>
+          <div class="title" style="left:calc(25.2513% - 30px);top:calc(25.2513% - 30px)">长航油运02</div>
+          <!--<span class="des">南京以上长江沿线、沿海石油及化学制品储运。","businessScope":"国内沿海、长江中下游及支流省际油船运输;国际船舶危险品运输;台湾海峡两岸间海上直航不定期货物运输;国际船舶管理;汽油、煤油、柴油批发;油轮船舶机务、海务管理;船舶检修、保养;船舶买卖、租赁、营运及资产管理;船舶技术服务、修理;工业生产资料、百货、五金交电、建筑材料、通信器材销售;经营各类商品和技术的进出口业务(国家限定企业经营或禁止进出口的商品及技术除外);(依法须经批准的项目,经相关部门批准后方可开展经营活动)。</span>-->
+        </div>
+        <div class="first" @click="circle()">
+          <span class="firstT">平安银行</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</template>
+
+<script>
+// import HelloWorld from './components/HelloWorld.vue'
+
+export default {
+  name: 'app',
+  data (){
+    return {
+      subCom:[],
+      subShow:false
+    }
+  },
+  components: {
+    // HelloWorld
+  },
+  mounted () {},
+  methods: {
+      circle(){
+          this.subShow = !this.subShow
+      }
+  }
+
+}
+</script>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  width: 100%;
+}
+.circle{
+  position:relative;
+  width:250px;
+  height:250px;
+  margin:0 auto;
+}
+.first{
+  display: flex;
+  width:80px;
+  height: 80px;
+  align-items: center;
+  /*background: #efefef;*/
+  border-radius:100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin:auto;
+  color: #fff;
+  background: linear-gradient(to bottom, #ff6600, #f3975a);
+}
+.firstT{
+  display: block;
+  width: 80px;
+  font-size: 12px;
+  text-align: center;
+}
+.firstS{
+  width:250px;
+  height:250px;
+  position: relative;
+  opacity:0;
+  transition: all 0.5s ease-in-out;
+}
+.firstS.firstSOpen{
+  opacity: 1;
+  transition: all 0.6s ease-in-out;
+}
+.firstS .title{
+  display: block;
+  width:60px;
+  height:60px;
+  /*background: #e8f7f7;*/
+  border-radius:100%;
+  text-align:center;
+  line-height: 60px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position: absolute;
+  background: linear-gradient(to bottom, #e8f7f7, #bfe8e8);
+  /*margin-bottom:20px;*/
+}
+</style>

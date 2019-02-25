@@ -1,0 +1,89 @@
+<template>
+  <div class="SubWrap">
+      <div class="subT">
+        <span class="sLeft">公司简称：</span>
+        <span class="sRight">
+          {{subCom.companyShortName}}
+          <em class="sRelation" @click="kla()">关系图</em>
+        </span>
+      </div>
+      <div class="subT">
+        <span class="sLeft">公司全称：</span>
+        <span class="sRight">{{subCom.companyFullName}}</span>
+      </div>
+    <div class="subT">
+      <span class="sLeft">公司主要业务：</span>
+      <span class="sRight">南京以上长江沿线、沿海石油及化学制品储运。</span>
+    </div>
+    <div class="subT">
+      <span class="sLeft">公司业务范围：</span>
+      <span class="sRight">国内沿海、长江中下游及支流省际油船运输;国际船舶危险品运输;台湾海峡两岸间海上直航不定期货物运输;国际船舶管理;汽油、煤油、柴油批发;油轮船舶机务、海务管理;船舶检修、保养;船舶买卖、租赁、营运及资产管理;船舶技术服务、修理;工业生产资料、百货、五金交电、建筑材料、通信器材销售;经营各类商品和技术的进出口业务(国家限定企业经营或禁止进出口的商品及技术除外);(依法须经批准的项目,经相关部门批准后方可开展经营活动)。</span>
+    </div>
+    <div class="subT">
+      <span class="sLeft">公司地址：</span>
+      <span class="sRight">{{subCom.registeredAddress}}</span>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Sub',
+  props: {
+    // msg: String
+  },
+  data() {
+      return {
+        subCom:{}
+      }
+  },
+  mounted (){
+      // eslint-disable-next-line
+      this.subCom = this.$route.params.subCom
+  },
+  methods:{
+      kla(){
+        this.$router.push({path:'/',query:{fundId:'000001'}})
+      }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.SubWrap{
+  padding:20px;
+}
+.SubWrap .subT:last-child{
+  border-bottom:1px solid #efefef;
+}
+.subT{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  padding:8px 10px;
+  border: 1px solid #efefef;
+  border-bottom: 0;
+}
+.subT span{
+  display: block;
+}
+.subT span.sLeft{
+  width:110px;
+  padding:0 4px;
+  font-size:14px;
+  text-align:left;
+}
+.subT span.sRight{
+  flex:1;
+}
+.sRelation{
+  display: inline-block;
+  vertical-align: middle;
+  padding: 4px 8px;
+  background: #ff4f29;
+  color: #fff;
+  border-radius:20px;
+  margin-left:10px;
+}
+</style>
